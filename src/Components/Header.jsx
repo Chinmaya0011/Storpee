@@ -1,6 +1,11 @@
 import React, { useContext, useState } from 'react';
 import '../Styles/Header.css'; // Import the CSS file
 import { MyContext } from '../Context/MyContext';
+import { FaHome } from "react-icons/fa";
+import { FcAbout } from "react-icons/fc";
+import { FaSitemap } from "react-icons/fa";
+import { FaCartPlus } from "react-icons/fa";
+import { IoIosSearch } from "react-icons/io";
 
 import { Link } from 'react-router-dom';
 function Header() {
@@ -29,10 +34,15 @@ function Header() {
       <nav className="nav">
         <ul className="nav-list">
       
-<li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
-<li className="nav-item"><Link to="/about" className="nav-link">About</Link></li>
-<li className="nav-item"><Link to="/products" className="nav-link">Products</Link></li>
-<li className="nav-item"><Link to="/cart" className="nav-link">Cart</Link></li>
+<li className="nav-item"><Link to="/" className="nav-link"><FaHome />
+
+</Link></li>
+<li className="nav-item"><Link to="/about" className="nav-link"><FcAbout />
+</Link></li>
+<li className="nav-item"><Link to="/products" className="nav-link"><FaSitemap />
+</Link></li>
+<li className="nav-item"><Link to="/cart" className="nav-link"><FaCartPlus />
+</Link></li>
          </ul>
       </nav>
       {/* Search Area */}
@@ -45,7 +55,8 @@ function Header() {
           onChange={handleChange}
         />
         <button type="submit" className="search-button" onClick={handleClick}>
-        <Link to="/searchItems" className="nav-link">Search</Link>
+        <Link to="/searchItems" className="nav-link"><IoIosSearch />
+</Link>
         </button>
       </div>
       {/* Correctly capitalize and pass searchResults as a prop */}

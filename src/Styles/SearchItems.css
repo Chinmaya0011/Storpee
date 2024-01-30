@@ -1,44 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* SearchItem.css */
 
+/* Container for search items */
 .search-products {
-  color: #e611d4;
+  color: #11e6e2;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 90%;
+  margin: 0 auto;
 }
 
+/* Individual search item */
 .search-item {
-  background-color: white;
-  width: 45%;
+  background-color: rgba(9, 71, 125, 0.618);
+  width: 45%; /* Adjust as needed */
   margin: 10px;
-  padding: 10px;
-  border: 1px solid #427fa2;
+  padding: 15px 5px 5px 5px;
+  border: 1px solid #1ec4be;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Original box-shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hover effect on search item */
 .search-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Updated box-shadow for slight 2D effect */
 }
 
-
-
+/* Search item title */
 .search-title {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
+/* Search item image */
 .search-image {
   width: 100%;
-  
   height: 200px;
   margin-bottom: 10px;
 }
+
+/* Search item description */
 .search-description {
   font-size: 14px;
   margin-bottom: 5px;
@@ -47,6 +53,7 @@
   white-space: nowrap;
 }
 
+/* Search item price, category, rating */
 .search-price,
 .search-category,
 .search-rating {
@@ -54,10 +61,12 @@
   margin-bottom: 5px;
 }
 
+/* Reduced font size for search item description */
 .search-description {
-  font-size: 12px; /* Reduced font size for description */
+  font-size: 12px;
 }
 
+/* Buy and add-to-cart buttons */
 .buy-button,
 .add-to-cart-button {
   display: inline-block;
@@ -74,6 +83,7 @@
   transition: background-color 0.3s ease;
 }
 
+/* Hover effect on buttons */
 .buy-button:hover,
 .add-to-cart-button:hover {
   background-color: #0056b3;

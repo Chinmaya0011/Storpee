@@ -9,7 +9,7 @@ import About from './Components/About';
 import CategoryList from './Components/CategoryList';
 import ProductList from './Components/ProductList';
 import Buy from './Components/Buy';
-
+import Footer from './Components/Footer';
 function App() {
   return (
     <MyProvider>
@@ -27,6 +27,7 @@ function App() {
             <Route path="/buy" element={<Buy />} />
 
           </Routes>
+          <Footer/>
         </div>
       </Router>
     </MyProvider>

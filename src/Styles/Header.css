@@ -27,10 +27,11 @@
 }
   
 .nav-item {
-    font-size: large;
+    font-size: 50px;
     font-family: 'Times New Roman', Times, serif;
     display: inline;
     margin-right: 1rem;
+
 }
   
 .nav-link {
@@ -40,7 +41,7 @@
   
 .nav-link:hover {
     text-decoration: none;
-    color: #17de21; /* Navigation link color */
+    color: #1795de; /* Navigation link color */
 }
 
 /* Search Area */
@@ -61,6 +62,7 @@
 }
   
 .search-button {
+ font-weight: bold;
     padding: 0.5rem 1rem;
     background-color: #007bff; /* Button background color */
     color: white;
@@ -73,7 +75,7 @@
 
 /* Hover effect for button */
 .search-button:hover {
-    background-color: #00aab3; /* Darker background color on hover */
+    background-color: #b39800; /* Darker background color on hover */
 }
 
 /* Media Queries */
