@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { MyContext } from '../Context/MyContext';
-import '../Styles/SearchItems.css';
+import '../Styles/searchItems.css';
 import LoadingPage from './LoadingPage';
 
 function SearchItems() {
