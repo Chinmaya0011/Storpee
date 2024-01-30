@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CategoryList from './CategoryList';
-import ProductList from './ProductList';
+import ProductList from './productList';
 
 function Category() {
     const [selectedCategory, setSelectedCategory] = useState(null); // State for selected category
