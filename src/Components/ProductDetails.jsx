@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../Styles/ProductDetails.css';
+import '../Styles/productDetails.css';
 import { MyContext } from '../Context/MyContext';
 
 function ProductDetails({ product, onClose }) {
