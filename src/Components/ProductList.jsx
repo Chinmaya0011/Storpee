@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { MyContext } from '../Context/MyContext';
-import '../Styles/ProductList.css'; // Make sure to import the correct CSS file
+import '../Styles/productList.css'; // Make sure to import the correct CSS file
 
 function ProductList() {
   const { products, addToCart, cart } = useContext(MyContext); // Accessing products, addToCart function, and cart from context
