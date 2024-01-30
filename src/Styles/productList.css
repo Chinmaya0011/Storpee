@@ -1,0 +1,82 @@
+/* ProductList.css */
+
+/* Container for all products */
+.pl-products-container {
+    width: 90%;
+    height: 20px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Individual product item */
+.pl-product-item {
+    text-align: center;
+    width: calc(45% - 10px); /* Two items per line with a little spacing */
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.pl-product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Image inside product item */
+.pl-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+}
+
+/* Title */
+.pl-title {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Price */
+.pl-price {
+    margin-top: 5px;
+    color: #333333;
+}
+
+/* Description */
+.pl-description {
+    margin-top: 5px;
+    color: #666666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+}
+
+/* Button container */
+.pl-button-container {
+    margin-top: 15px;
+}
+
+/* Buy button */
+.pl-buy-button,
+.pl-add-to-cart-button {
+    padding: 8px 16px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4caf50; /* Green */
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Button hover effect */
+.pl-buy-button:hover,
+.pl-add-to-cart-button:hover {
+    background-color: #45a049; /* Darker green */
+}
