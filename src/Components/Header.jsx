@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import '../Styles/Header.css'; // Import the CSS file
+import '../Styles/header.css'; // Import the CSS file
 import { MyContext } from '../Context/MyContext';
 import { FaHome } from "react-icons/fa";
 import { FcAbout } from "react-icons/fc";
