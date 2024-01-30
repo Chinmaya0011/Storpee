@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { MyContext } from '../Context/MyContext';
-import '../Styles/Buy.css';
+import '../Styles/buy.css';
 
 function Buy() {
     const { buy, clearBuy, removeFromBuy, updateQuantity } = useContext(MyContext);
