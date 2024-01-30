@@ -1,0 +1,93 @@
+
+
+/* Header Container */
+.header-container {
+    
+    margin-top: 10px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #3a9f9f6e; /* Header background color */
+    border-radius: 10px; /* Border radius */
+    box-shadow: 10px 12px 15px rgba(26, 181, 15, 0.961); /* Box shadow */
+    border: 1px solid #dddddd00; /* Border for 3D effect */
+    transition: all 0.3s ease; /* Transition for smooth animation */
+}
+  
+/* Navigation */
+.nav {
+   
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+  
+.nav-item {
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    display: inline;
+    margin-right: 1rem;
+
+}
+  
+.nav-link {
+    text-decoration: none;
+    color: #fff7f7; /* Navigation link color */
+}
+  
+.nav-link:hover {
+    text-decoration: none;
+    color: #1795de; /* Navigation link color */
+}
+
+/* Search Area */
+.search-area {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+  
+.search-input {
+    width: auto;
+    color: aqua;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 5px; /* Border radius for input */
+    border: 1px solid #cccccc00; /* Border color for input */
+}
+  
+.search-button {
+ font-weight: bold;
+    padding: 0.5rem 1rem;
+    background-color: #007bff; /* Button background color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* Border radius for button */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow for button */
+    transition: background-color 0.3s ease; /* Transition for smooth animation */
+}
+
+/* Hover effect for button */
+.search-button:hover {
+    background-color: #b39800; /* Darker background color on hover */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        padding: 4px;
+        
+    }
+    
+    .nav-item {
+        margin: 0.5rem 0;
+        padding: 5px;
+    }
+}

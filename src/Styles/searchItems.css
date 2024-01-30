@@ -1,0 +1,90 @@
+/* SearchItem.css */
+
+/* Container for search items */
+.search-products {
+  color: #11e6e2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Individual search item */
+.search-item {
+  background-color: rgba(9, 71, 125, 0.618);
+  width: 45%; /* Adjust as needed */
+  margin: 10px;
+  padding: 15px 5px 5px 5px;
+  border: 1px solid #1ec4be;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Original box-shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect on search item */
+.search-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Updated box-shadow for slight 2D effect */
+}
+
+/* Search item title */
+.search-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Search item image */
+.search-image {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+/* Search item description */
+.search-description {
+  font-size: 14px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Search item price, category, rating */
+.search-price,
+.search-category,
+.search-rating {
+  font-size: 14px; /* Set a common font size for all text except title */
+  margin-bottom: 5px;
+}
+
+/* Reduced font size for search item description */
+.search-description {
+  font-size: 12px;
+}
+
+/* Buy and add-to-cart buttons */
+.buy-button,
+.add-to-cart-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect on buttons */
+.buy-button:hover,
+.add-to-cart-button:hover {
+  background-color: #0056b3;
+}
