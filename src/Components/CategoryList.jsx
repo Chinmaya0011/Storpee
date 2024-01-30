@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { MyContext } from '../Context/MyContext';
 import { Link } from 'react-router-dom';
-import '../Styles/Category.css';
+import '../Styles/category.css';
 
 function CategoryList({ onCategorySelect }) { // Receive onCategorySelect function as prop
     const { category } = useContext(MyContext);
