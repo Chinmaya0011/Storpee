@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MyContext } from "../Context/MyContext";
-import "../Styles/Products.css";
+import "../Styles/products.css";
 import ProductDetails from "./ProductDetails";
 
 function Products() {
