@@ -10,24 +10,48 @@ import CategoryList from './Components/CategoryList';
 import ProductList from './Components/ProductList';
 import Buy from './Components/Buy';
 import Footer from './Components/Footer';
+import HeroSection from './Components/HeroSection';
+
 function App() {
   return (
     <MyProvider>
       <Router>
         <div className="app-container">
           <Header />
-          <CategoryList /> {/* Rendered here */}
           <Routes>
-            <Route path="/" element={<Products />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/searchItems" element={<SearchItems />} />
-            <Route path="/:cat" element={<ProductList />} /> {/* Define route parameter for category */}
-            <Route path="/buy" element={<Buy />} />
-
+            <Route path="/" element={<>
+              <HeroSection /> {/* Render HeroSection on the homepage */}
+              <CategoryList/>
+              <Products />
+            </>} />
+            <Route path="/products" element={<>
+              <HeroSection /> {/* Render HeroSection on the products page */}
+              <CategoryList />
+              <Products />
+            </>} />
+            <Route path="/cart" element={<>
+             
+              <Cart />
+            </>} />
+            <Route path="/about" element={<>
+             
+              <About />
+            </>} />
+            <Route path="/searchItems" element={<>
+             
+              <SearchItems />
+            </>} />
+            
+            <Route path="/:cat" element={<>
+             <CategoryList/>
+              <ProductList />
+            </>} />
+            <Route path="/buy" element={<>
+              
+              <Buy />
+            </>} />
           </Routes>
-          <Footer/>
+          <Footer />
         </div>
       </Router>
     </MyProvider>

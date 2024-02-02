@@ -6,48 +6,50 @@ import { FcAbout } from "react-icons/fc";
 import { FaSitemap } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
-
 import { Link } from 'react-router-dom';
+
+import logo from '../images/logo.png';
 function Header() {
   const [searchItem, setSearchItem] = useState('');
   const { searchProducts, setSearchResults} = useContext(MyContext); // Include searchResults in the destructuring
 
   const handleChange = (e) => {
     setSearchItem(e.target.value);
-   
-    
   };
 
   const handleClick = () => {
     const results = searchProducts(searchItem);
     setSearchResults(results);
-    // Clear search input after search
-
-     // Set showProducts to false
-    console.log('Searching for:', searchItem);
-    searchItem=' '
+    setSearchItem(''); // Clear search input after search
   };
 
   return (
     <div className="header-container">
+      {/* Logo */}
+      <div className="logo">
+      <img src={logo} alt="Storepee Logo" />
+      </div>
       {/* Navigation */}
       <nav className="nav">
         <ul className="nav-list">
-      
-<li className="nav-item"><Link to="/" className="nav-link"><FaHome />
-
-</Link></li>
-<li className="nav-item"><Link to="/about" className="nav-link"><FcAbout />
-</Link></li>
-<li className="nav-item"><Link to="/products" className="nav-link"><FaSitemap />
-</Link></li>
-<li className="nav-item"><Link to="/cart" className="nav-link"><FaCartPlus />
-</Link></li>
-         </ul>
+          <li className="nav-item">
+            <Link to="/" className="nav-link"><FaHome /></Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/about" className="nav-link"><FcAbout /></Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/products" className="nav-link"><FaSitemap /></Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/cart" className="nav-link"><FaCartPlus /></Link>
+          </li>
+        </ul>
       </nav>
       {/* Search Area */}
       <div className="search-area">
         <input
+        
           type="text"
           className="search-input"
           placeholder="Search..."
@@ -55,11 +57,9 @@ function Header() {
           onChange={handleChange}
         />
         <button type="submit" className="search-button" onClick={handleClick}>
-        <Link to="/searchItems" className="nav-link"><IoIosSearch />
-</Link>
+          <Link to="/searchItems" className="nav-link"><IoIosSearch /></Link>
         </button>
       </div>
-      {/* Correctly capitalize and pass searchResults as a prop */}
     </div>
   );
 }

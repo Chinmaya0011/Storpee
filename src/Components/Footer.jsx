@@ -1,12 +1,14 @@
 import React from 'react';
 import '../Styles/footer.css';
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+import logo from '../Images/logo.png';
 
 const Footer = () => {
     return (
         <footer className="footer">
-            <div className="footer-container">
+            <div className="footer-container my-footer">
                 <div className="footer-info">
-                    <h3 className="footer-heading">StorePee</h3>
+                    <img src={logo} alt="StorePee Logo" />
                     <p className="footer-description">Your one-stop shop for all your needs.</p>
                 </div>
                 <div className="footer-links">
@@ -21,9 +23,11 @@ const Footer = () => {
                 <div className="footer-social">
                     <h4 className="footer-heading">Connect With Us</h4>
                     <ul className="footer-social-icons">
-                        <li><a href="#"><i className="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i className="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i className="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><FaFacebookF /></a></li>
+                        <li><a href="#"><FaTwitter /></a></li>
+                        <li><a href="#"><FaInstagram /></a></li>
+                        <li><a href="#"><FaLinkedin /></a></li>
+                        <li><a href="#"><FaWhatsapp /></a></li>
                     </ul>
                 </div>
             </div>

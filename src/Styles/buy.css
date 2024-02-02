@@ -1,5 +1,5 @@
 .buy-container {
-  padding: 20px;
+ 
   color: #d755ff;
   background-color: #f9f9f9;
   border-radius: 10px;
@@ -10,12 +10,15 @@
 
 .buy-container.buy-has-items {
   background-color: #ffffff;
-  width: 50%;
-  margin: 0 auto;
+  width: 70%;
+  margin: 10px auto; /* Corrected margin */
 }
+
 
 .buy-container.buy-empty {
   text-align: center;
+  margin: 10px;
+  padding: 10px;
 }
 
 .buy-item {
@@ -27,13 +30,15 @@
   width: 100px;
   height: auto;
   border-radius: 5px;
-  margin-right: 20px;
+  margin: 20px;
 }
 
 .buy-details-container {
+  margin: 20px;
   flex: 1;
 }
 .buy-remove-button {
+  
   background-color: #ff5555; /* Red */
   color: white;
   padding: 10px 20px;
@@ -53,6 +58,7 @@
 }
 
 .buy-proceed-button {
+  margin: 20px;
   background-color: #4CAF50; /* Green */
   color: white;
   padding: 10px 20px;
@@ -110,10 +116,12 @@
 }
 
 .buy-title {
+  margin: 20px;
   font-weight: bold;
 }
 
 .buy-discount-message {
+  margin: 20px;
   color: #ff0000;
   font-style: italic;
 }
