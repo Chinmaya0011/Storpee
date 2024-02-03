@@ -1,58 +1,24 @@
+// App.jsx
+import React, { useContext } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import necessary components from react-router-dom
 import './App.css';
-import Header from './Components/Header';
-import { MyProvider } from './Context/MyContext';
-import Products from './Components/Products';
-import SearchItems from './Components/SearchItems';
-import Cart from './Components/Cart';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import About from './Components/About';
-import CategoryList from './Components/CategoryList';
-import ProductList from './Components/ProductList';
-import Buy from './Components/Buy';
-import Footer from './Components/Footer';
-import HeroSection from './Components/HeroSection';
+import Home from './Home/Home';
+import { MyContext, MyProvider } from './Context/MyContext';
+import Login from './Components/Login';
+import Signup from './Components/Signup';
 
 function App() {
+  const { isLogin, isSignup } = useContext(MyContext);
+
   return (
     <MyProvider>
       <Router>
-        <div className="app-container">
-          <Header />
-          <Routes>
-            <Route path="/" element={<>
-              <HeroSection /> {/* Render HeroSection on the homepage */}
-              <CategoryList/>
-              <Products />
-            </>} />
-            <Route path="/products" element={<>
-              <HeroSection /> {/* Render HeroSection on the products page */}
-              <CategoryList />
-              <Products />
-            </>} />
-            <Route path="/cart" element={<>
-             
-              <Cart />
-            </>} />
-            <Route path="/about" element={<>
-             
-              <About />
-            </>} />
-            <Route path="/searchItems" element={<>
-             
-              <SearchItems />
-            </>} />
-            
-            <Route path="/:cat" element={<>
-             <CategoryList/>
-              <ProductList />
-            </>} />
-            <Route path="/buy" element={<>
-              
-              <Buy />
-            </>} />
-          </Routes>
-          <Footer />
-        </div>
+        <Routes> {/* Use Routes component to define your routes */}
+          <Route path="/signup" element={<Signup />} /> {/* Use element prop to specify the component */}
+          <Route path="/login" element={<Login />} /> {/* Use element prop to specify the component */}
+          <Route path="/home" element={<Home />} /> {/* Use element prop to specify the component */}
+          <Route path="/" element={<Signup />} /> {/* Specify default route */}
+        </Routes>
       </Router>
     </MyProvider>
   );

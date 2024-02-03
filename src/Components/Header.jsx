@@ -7,6 +7,7 @@ import { FaSitemap } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
 import { Link } from 'react-router-dom';
+import { IoIosLogOut } from "react-icons/io";
 
 import logo from '../images/logo.png';
 function Header() {
@@ -43,6 +44,11 @@ function Header() {
           </li>
           <li className="nav-item">
             <Link to="/cart" className="nav-link"><FaCartPlus /></Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to="/login" className="nav-link"><IoIosLogOut />
+</Link>
           </li>
         </ul>
       </nav>

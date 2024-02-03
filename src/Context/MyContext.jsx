@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 const MyContext = createContext();
 
@@ -10,9 +10,29 @@ const MyProvider = ({ children }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [cart, setCart] = useState([]);
-  const [buy, setBuy] = useState([]); // <-- Add buy state
+  const [buy, setBuy] = useState([]);
   const [quantity, setQuantity] = useState({});
+
+
+  const[isLogin,setIsLogin]=useState(false)
+  const[isSignup,setSignup]=useState(false)
   
+  const handleLoginFunc=()=>{
+    setIsLogin(true)
+  }
+  
+  const handleSignupFunc=()=>{
+    setSignup(true)
+  }
+//
+const handleLoginSuccess = () => {
+  setLoggedIn(true);
+};
+
+// Function to handle successful signup
+const handleSignupSuccess = () => {
+  setLoggedIn(true);
+};
   const handleBuy = (product) => {
     // Check if the product already exists in the buy list
     const existingProductIndex = buy.findIndex(item => item.id === product.id);
@@ -150,6 +170,12 @@ const MyProvider = ({ children }) => {
         updateQuantity,
         clearBuy,
         removeFromBuy,
+handleLoginFunc,
+handleSignupFunc,
+isLogin,
+isSignup,
+handleLoginSuccess,
+handleSignupSuccess
       }}
     >
       {children}
