@@ -1,16 +1,17 @@
 // Login.jsx
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { Link, useNavigate } from 'react-router-dom';
 import '../Styles/login.css';
-import {auth,firebaseConfig} from '../Firebase/firebase'
+import { MyContext } from '../Context/MyContext';
 
 function Login() {
+  const { handleLoginSuccess } = useContext(MyContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const navigate = useNavigate(); // Use useNavigate hook for programmatic navigation
+  const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -26,12 +27,13 @@ function Login() {
     setShowPassword(!showPassword);
   };
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault(); // Prevent form submission
     try {
       const auth = getAuth();
       await signInWithEmailAndPassword(auth, email, password);
-      // Navigate to Home component upon successful login
-      navigate('/home'); // Use navigate function for navigation
+      handleLoginSuccess();
+      navigate('/products');
     } catch (error) {
       console.error('Error logging in:', error.message);
       setErrorMessage('Error logging in: ' + error.message);
@@ -39,12 +41,13 @@ function Login() {
   };
 
   return (
-    <div className="login-container">
+    <form className="login-container" onSubmit={handleLogin}>
       <h1>Login</h1>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <div className="form-group">
-        <label className="label">Email:</label>
+        <label htmlFor="email" className="label">Email:</label>
         <input
+          id="email"
           type="email"
           value={email}
           onChange={handleEmailChange}
@@ -53,8 +56,9 @@ function Login() {
         />
       </div>
       <div className="form-group">
-        <label className="label">Password:</label>
+        <label htmlFor="password" className="label">Password:</label>
         <input
+          id="password"
           type={showPassword ? 'text' : 'password'}
           value={password}
           onChange={handlePasswordChange}
@@ -73,7 +77,7 @@ function Login() {
           Show Password
         </label>
       </div>
-      <button onClick={handleLogin} className="button">
+      <button type="submit" className="button">
         Login
       </button>
       <div className="additional-links">
@@ -83,7 +87,7 @@ function Login() {
         <span>|</span>
         <a href="#">Contact Us</a>
       </div>
-    </div>
+    </form>
   );
 }
 

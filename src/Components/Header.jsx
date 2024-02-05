@@ -10,25 +10,27 @@ import { Link } from 'react-router-dom';
 import { IoIosLogOut } from "react-icons/io";
 
 import logo from '../images/logo.png';
+
 function Header() {
   const [searchItem, setSearchItem] = useState('');
-  const { searchProducts, setSearchResults} = useContext(MyContext); // Include searchResults in the destructuring
+  const { searchProducts, setSearchResults, isAuthenticated } = useContext(MyContext); // Include isAuthenticated in the destructuring
 
   const handleChange = (e) => {
     setSearchItem(e.target.value);
   };
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
     const results = searchProducts(searchItem);
     setSearchResults(results);
-    setSearchItem(''); // Clear search input after search
+    setSearchItem('');
   };
 
   return (
     <div className="header-container">
       {/* Logo */}
       <div className="logo">
-      <img src={logo} alt="Storepee Logo" />
+        <img src={logo} alt="Storepee Logo" />
       </div>
       {/* Navigation */}
       <nav className="nav">
@@ -45,27 +47,24 @@ function Header() {
           <li className="nav-item">
             <Link to="/cart" className="nav-link"><FaCartPlus /></Link>
           </li>
-
           <li className="nav-item">
-            <Link to="/login" className="nav-link"><IoIosLogOut />
-</Link>
+            <Link to="/success" className="nav-link"><FaCartPlus /></Link>
           </li>
         </ul>
       </nav>
       {/* Search Area */}
-      <div className="search-area">
+      <form onSubmit={handleClick} className="search-area">
         <input
-        
           type="text"
           className="search-input"
           placeholder="Search..."
           value={searchItem}
           onChange={handleChange}
         />
-        <button type="submit" className="search-button" onClick={handleClick}>
-          <Link to="/searchItems" className="nav-link"><IoIosSearch /></Link>
+        <button type="submit" className="search-button">
+          <IoIosSearch />
         </button>
-      </div>
+      </form>
     </div>
   );
 }

@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate instead of useHistory
 import { auth } from '../Firebase/firebase'; // Import auth from Firebase
 import "../Styles/signup.css"
+import { MyContext } from '../Context/MyContext';
 function Signup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); // Use useNavigate hook for programmatic navigation
-
+const {handleSignupSuccess}=useContext(MyContext)
   useEffect(() => {
     // No need to initialize auth here, as it's already initialized in the Firebase config
   }, []);
@@ -35,6 +36,7 @@ function Signup() {
 
     try {
       await createUserWithEmailAndPassword(auth, email, password);
+     handleSignupSuccess()
       // Navigate to Home component upon successful signup
       navigate('/home'); // Use navigate function for navigation
     } catch (error) {

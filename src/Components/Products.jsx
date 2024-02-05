@@ -7,7 +7,7 @@ import ProductDetails from "./ProductDetails";
 function Products() {
     const { products, addToCart, cart, showProducts, setShowProducts, handleBuy, buy, updateQuantity } = useContext(MyContext);
     const [selectedProduct, setSelectedProduct] = useState(null);
-
+  
     const handleAddToCart = (product) => {
         addToCart(product);
     };

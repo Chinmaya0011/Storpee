@@ -4,7 +4,7 @@ import { MyContext } from '../Context/MyContext';
 import '../Styles/buy.css';
 
 function Buy() {
-    const { buy, clearBuy, removeFromBuy, updateQuantity } = useContext(MyContext);
+    const { buy, clearBuy, removeFromBuy,handleProceedToBuy } = useContext(MyContext);
 
     const handleClearBuy = () => {
         clearBuy(); // Function to clear purchased products
@@ -21,11 +21,7 @@ function Buy() {
         // Implement navigation logic to go back to buy items
     };
 
-    const handleProceedToBuy = () => {
-        // Implement logic to proceed to the checkout or payment page
-        // For example, you can navigate to a checkout route or show a modal for payment options
-        console.log('Proceed to Buy');
-    };
+    
 
     return (
         <div className={`buy-container ${buy.length > 0 ? 'buy-has-items' : 'buy-empty'}`}>
@@ -47,7 +43,8 @@ function Buy() {
                     ))}
                     <p className="buy-total-price">Total Price: ${totalPrice}</p>
                     {totalPrice < 200 && <p className="buy-discount-message">Add ${amountNeededForDiscount.toFixed(2)} more to get 20% discount</p>}
-                    <button className="buy-proceed-button" onClick={handleProceedToBuy}>Proceed to Buy</button>
+                    <Link to={'/success'} className="buy-proceed-button" onClick={() => handleProceedToBuy(buy)}>Proceed to Buy</Link>
+
                     <button className="buy-clear-button" onClick={handleClearBuy}>Clear Buy</button>
                 </>
             ) : (

@@ -10,13 +10,15 @@ import ProductList from '../Components/ProductList';
 import Buy from '../Components/Buy';
 import Footer from '../Components/Footer';
 import HeroSection from '../Components/HeroSection';
-
+import Success from '../Components/Sucess';
 
 function Home() {
   return (
     <div className="app-container">
       <Header />
+     
       <Routes>
+       
         <Route path="/" element={<>
           <HeroSection /> {/* Render HeroSection on the homepage */}
           <CategoryList/>
@@ -35,7 +37,10 @@ function Home() {
           <ProductList />
         </>} />
         <Route path="/buy" element={<Buy />} />
+        <Route path='/success' element={<Success/>}/>
+
       </Routes>
+     
       <Footer />
     </div>
   );
