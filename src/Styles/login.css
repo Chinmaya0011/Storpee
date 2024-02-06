@@ -1,65 +1,137 @@
 /* login.css */
 
 .login-container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    animation: color-change 5s infinite;
+  position: relative; /* Set position to relative for absolute positioning of pseudo-elements */
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; /* Set initial background color */
+  animation: color-change 5s infinite alternate; /* Apply background color animation */
+  overflow: hidden; /* Hide overflowing pseudo-elements */
 }
+
+/* Define keyframes for the color change animation */
+@keyframes color-change {
+  0% {
+      background-color: #ff6347; /* Red */
+  }
   
+  50% {
+      background-color: #32cd32; /* Green */
+  }
  
-  
-  .label {
-    display: block;
-    margin-bottom: 5px;
+  100% {
+      background-color: #ffd700; /* Yellow */
   }
-  
-  .input {
-    width:300px;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #cccccc7c;
-    border-radius: 4px;
+}
+
+/* Pseudo-elements for balloon or star blur type elements */
+.login-container::before,
+.login-container::after {
+  content: '';
+  position: absolute;
+  background: radial-gradient(rgba(86, 115, 118, 0.8), transparent); /* Radial gradient for blur effect */
+  pointer-events: none; /* Ensure pseudo-elements don't interfere with mouse events */
+}
+
+/* Balloon type pseudo-element */
+.login-container::before {
+  width: 80px;
+  height: 80px;
+  top: -40px;
+  left: calc(50% - 100px);
+  border-radius: 50%;
+  animation: move-up 10s linear infinite; /* Apply upward movement animation */
+}
+
+/* Star blur type pseudo-element */
+.login-container::after {
+  width: 120px;
+  height: 120px;
+  top: 40%;
+  left: -60px;
+  border-radius: 50%;
+  animation: move-right 8s linear infinite; /* Apply rightward movement animation */
+}
+
+/* Define keyframes for the upward movement animation */
+@keyframes move-up {
+  0% {
+      transform: translateY(0);
   }
-  
-  .checkbox {
-    margin-right: 5px;
+  50% {
+      transform: translateY(-100px);
   }
-  
-  .button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  100% {
+      transform: translateY(0);
   }
-  
-  .additional-links {
-    margin-top: 15px;
-    text-align: center;
-    color: chartreuse;
+}
+
+/* Define keyframes for the rightward movement animation */
+@keyframes move-right {
+  0% {
+      transform: translateX(0);
   }
-  
-  .additional-links a {
-    text-decoration: none;
-    color: #b21db4;
+  50% {
+      transform: translateX(100px);
   }
-  
-  .additional-links span {
-    margin: 0 5px;
+  100% {
+      transform: translateX(0);
   }
-  
-  /* Media Query for Responsive Design */
-  
-  @media (max-width: 600px) {
-    .login-container {
-    width: 100%;
-    }
+}
+
+/* Rest of your existing styles */
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input {
+  width:300px;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #cccccc7c;
+  border-radius: 4px;
+}
+
+.checkbox {
+  margin-right: 5px;
+}
+
+.button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.additional-links {
+  margin-top: 15px;
+  text-align: center;
+  color: chartreuse;
+}
+
+.additional-links a {
+  text-decoration: none;
+  color: #b21db4;
+}
+
+.additional-links span {
+  margin: 0 5px;
+}
+
+/* Media Query for Responsive Design */
+
+@media (max-width: 600px) {
+  .login-container {
+      width: 100%;
   }
-  
+}

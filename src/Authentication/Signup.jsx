@@ -3,6 +3,7 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate instead of useHistory
 import { auth } from '../Firebase/firebase'; // Import auth from Firebase
 import "../Styles/signup.css"
+import Loadingpage from '../Components/LoadingPage'
 import { MyContext } from '../Context/MyContext';
 function Signup() {
   const [name, setName] = useState('');
@@ -10,7 +11,7 @@ function Signup() {
   const [mobile, setMobile] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); // Use useNavigate hook for programmatic navigation
-const {handleSignupSuccess,setSignup}=useContext(MyContext)
+const {handleSignupSuccess,setSignup,loading}=useContext(MyContext)
   useEffect(() => {
     // No need to initialize auth here, as it's already initialized in the Firebase config
   }, []);
@@ -48,54 +49,56 @@ const {handleSignupSuccess,setSignup}=useContext(MyContext)
 
   return (
     <div>
+      {loading?<Loadingpage/>:
       <form className="signup-form-container" onSubmit={handleSubmit}>
-        <h1 className='signup-h1'>Signup</h1>
-        <div>
-          <label className="signup-label">Name:</label>
-          <input
-            type="text"
-            value={name}
-            onChange={handleNameChange}
-            className="signup-input"
-            required
-          />
-        </div>
-        <div>
-          <label className="signup-label">Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={handleEmailChange}
-            className="signup-input"
-            required
-          />
-        </div>
-        <div>
-          <label className="signup-label">Mobile:</label>
-          <input
-            type="tel"
-            value={mobile}
-            onChange={handleMobileChange}
-            className="signup-input"
-            required
-          />
-        </div>
-        <div>
-          <label className="signup-label">Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-            className="signup-input"
-            required
-          />
-        </div>
-        <button type="submit" className="signup-button">Signup</button>
+      <h1 className='signup-h1'>Signup</h1>
+      <div>
+        <label className="signup-label">Name:</label>
+        <input
+          type="text"
+          value={name}
+          onChange={handleNameChange}
+          className="signup-input"
+          required
+        />
+      </div>
+      <div>
+        <label className="signup-label">Email:</label>
+        <input
+          type="email"
+          value={email}
+          onChange={handleEmailChange}
+          className="signup-input"
+          required
+        />
+      </div>
+      <div>
+        <label className="signup-label">Mobile:</label>
+        <input
+          type="tel"
+          value={mobile}
+          onChange={handleMobileChange}
+          className="signup-input"
+          required
+        />
+      </div>
+      <div>
+        <label className="signup-label">Password:</label>
+        <input
+          type="password"
+          value={password}
+          onChange={handlePasswordChange}
+          className="signup-input"
+          required
+        />
+      </div>
+      <button type="submit" className="signup-button">Signup</button>
+    
+      <div className='goto-login'>
+        <p>Already have an account? <Link to="/login">Login</Link></p>
+      </div>
+    </form>}
       
-        <div className='goto-login'>
-          <p>Already have an account? <Link to="/login">Login</Link></p>
-        </div>
-      </form>
     </div>
   );
 }

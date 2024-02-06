@@ -16,7 +16,7 @@ function App() {
         <Route path='/signup' element={<Signup/>}/> {/* Use element prop instead of component */}
 
         {/* Conditional rendering moved outside of Routes */}
-        {isLogin || isSignup ? <Route path='/*' element={<Home />} /> : <Route path='/*' element={<Login />} />} 
+        {isLogin || isSignup ? <Route path='/*' element={<Home />} /> : <Route path='/*' element={<Signup />} />} 
       </Routes> {/* Close Routes */}
     </Router>
   );
