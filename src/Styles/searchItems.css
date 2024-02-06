@@ -2,32 +2,31 @@
 
 /* Container for search items */
 .search-products {
-  color: #11e6e2;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  align-items: start;
   width: 90%;
   margin: 0 auto;
+  
 }
 
 /* Individual search item */
 .search-item {
-  background-color: rgba(9, 71, 125, 0.618);
-  width: 45%; /* Adjust as needed */
+  height: 500px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
   margin: 10px;
-  padding: 15px 5px 5px 5px;
-  border: 1px solid #1ec4be;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Original box-shadow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Hover effect on search item */
 .search-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Updated box-shadow for slight 2D effect */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Search item title */
@@ -35,47 +34,45 @@
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
+  color: #343a40;
 }
 
 /* Search item image */
 .search-image {
   width: 100%;
   height: 200px;
-  margin-bottom: 10px;
+  border-radius: 5px;
 }
 
 /* Search item description */
 .search-description {
   font-size: 14px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  color: #6c757d;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
 }
 
-/* Search item price, category, rating */
-.search-price,
-.search-category,
-.search-rating {
-  font-size: 14px; /* Set a common font size for all text except title */
-  margin-bottom: 5px;
-}
 
-/* Reduced font size for search item description */
-.search-description {
-  font-size: 12px;
+/* Search item price */
+.search-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #198754;
 }
 
 /* Buy and add-to-cart buttons */
 .buy-button,
 .add-to-cart-button {
-  display: inline-block;
   padding: 10px 20px;
   font-size: 14px;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
-  background-color: #007bff;
+  background-color: #0d6efd;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -86,5 +83,5 @@
 /* Hover effect on buttons */
 .buy-button:hover,
 .add-to-cart-button:hover {
-  background-color: #0056b3;
+  background-color: #0b5ed7;
 }

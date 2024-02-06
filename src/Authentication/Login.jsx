@@ -61,6 +61,7 @@ function Login() {
               onChange={handleEmailChange}
               className="input"
               required
+              placeholder='imchinu17@gmail.com'
             />
           </div>
           <div className="form-group">
@@ -74,6 +75,7 @@ function Login() {
               onChange={handlePasswordChange}
               className="input"
               required
+              placeholder='Abc@123'
             />
           </div>
           <div className="form-group">
@@ -83,6 +85,7 @@ function Login() {
                 checked={showPassword}
                 onChange={toggleShowPassword}
                 className="checkbox"
+                
               />
               Show Password
             </label>
@@ -91,11 +94,12 @@ function Login() {
             Login
           </button>
           <div className="additional-links">
-            <Link to="/forgot-password">Forgot Password</Link>
+            <Link to="/forgotpswrd">Forgot Password</Link>
             <span>|</span>
             <Link to="/signup">Sign Up</Link>
             <span>|</span>
-            <Link to="/contact-us">Contact Us</Link>
+            <a href="mailto:imchinu17@gmail.com">Contact Us</a>
+
           </div>
         </form>
       )}

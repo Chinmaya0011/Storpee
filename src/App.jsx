@@ -5,7 +5,8 @@ import Home from './Home/Home';
 import { MyContext } from './Context/MyContext';
 import Login from './Authentication/Login';
 import Signup from './Authentication/Signup';
-
+import ForgotPassword from './Authentication/ForgotPassword';
+import ContactUs from './Authentication/ContactUs';
 function App() {
   const { isLogin, isSignup } = useContext(MyContext);
 
@@ -14,7 +15,8 @@ function App() {
       <Routes> {/* Wrap your Route components with Routes */}
         <Route path='/login' element={<Login/>}/> {/* Use element prop instead of component */}
         <Route path='/signup' element={<Signup/>}/> {/* Use element prop instead of component */}
-
+        <Route path='/forgotpswrd' element={<ForgotPassword/>}/> {/* Use element prop instead of component */}
+        <Route path='/help' element={<ContactUs/>}/> {/* Use element prop instead of component */}
         {/* Conditional rendering moved outside of Routes */}
         {isLogin || isSignup ? <Route path='/*' element={<Home />} /> : <Route path='/*' element={<Signup />} />} 
       </Routes> {/* Close Routes */}

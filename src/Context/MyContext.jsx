@@ -119,12 +119,13 @@ const MyProvider = ({ children }) => {
   const searchProducts = (searchItem) => {
     setLoading(true);
     const results = products.filter((product) =>
-      product.title.toLowerCase().includes(searchItem.toLowerCase())
+        product.title.toLowerCase().includes(searchItem.toLowerCase())
     );
     setSearchResults(results);
     setLoading(false);
     return results;
-  };
+};
+
 
   const clearBuy = () => {
     setBuy([]);
@@ -157,6 +158,7 @@ setPurchasedProductsData(newItem)
         loading,
         setLoading,
         products,
+        setIsLogin,
         category,
         selectedCategory,
         setSelectedCategory,
@@ -170,6 +172,7 @@ setPurchasedProductsData(newItem)
         handleProceedToBuy,
         isLogin,
         isSignup,
+        setSearchResults,
         handleLoginSuccess,
         handleSignupSuccess,
         purchasedProductsData,

@@ -1,0 +1,26 @@
+.please-wait {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .please-wait p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    animation: fly 2s linear infinite; /* Apply the flying animation */
+  }
+  
+  @keyframes fly {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px); /* Move text up */
+    }
+    100% {
+      transform: translateY(0); /* Return text to original position */
+    }
+  }
+  

@@ -127,8 +127,8 @@
 }
 
 .goto-login a {
-  color: #1e90ff;
   text-decoration: none;
+  color: #0800ff;
 }
 
 .goto-login a:hover {
