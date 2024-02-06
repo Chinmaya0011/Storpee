@@ -16,31 +16,18 @@ function Home() {
   return (
     <div className="app-container">
       <Header />
-     
+      <HeroSection />
+      <CategoryList />
       <Routes>
-       
-        <Route path="/" element={<>
-          <HeroSection /> {/* Render HeroSection on the homepage */}
-          <CategoryList/>
-          <Products />
-        </>} />
-        <Route path="/products" element={<>
-          <HeroSection /> {/* Render HeroSection on the products page */}
-          <CategoryList />
-          <Products />
-        </>} />
+        <Route path="/" element={<Products />} />
+        <Route path="/products" element={<Products />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/about" element={<About />} />
         <Route path="/searchItems" element={<SearchItems />} />
-        <Route path="/:cat" element={<>
-          <CategoryList />
-          <ProductList />
-        </>} />
+        <Route path="/:cat" element={<ProductList />} />
         <Route path="/buy" element={<Buy />} />
-        <Route path='/success' element={<Success/>}/>
-
+        <Route path='/success' element={<Success />} />
       </Routes>
-     
       <Footer />
     </div>
   );

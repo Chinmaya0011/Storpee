@@ -10,7 +10,7 @@ function Signup() {
   const [mobile, setMobile] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); // Use useNavigate hook for programmatic navigation
-const {handleSignupSuccess}=useContext(MyContext)
+const {handleSignupSuccess,setSignup}=useContext(MyContext)
   useEffect(() => {
     // No need to initialize auth here, as it's already initialized in the Firebase config
   }, []);
@@ -37,6 +37,7 @@ const {handleSignupSuccess}=useContext(MyContext)
     try {
       await createUserWithEmailAndPassword(auth, email, password);
      handleSignupSuccess()
+     
       // Navigate to Home component upon successful signup
       navigate('/home'); // Use navigate function for navigation
     } catch (error) {

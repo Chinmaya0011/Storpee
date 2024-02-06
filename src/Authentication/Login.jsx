@@ -6,7 +6,7 @@ import '../Styles/login.css';
 import { MyContext } from '../Context/MyContext';
 
 function Login() {
-  const { handleLoginSuccess } = useContext(MyContext);
+  const { handleLoginSuccess,setIsLogin } = useContext(MyContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -34,6 +34,7 @@ function Login() {
       await signInWithEmailAndPassword(auth, email, password);
       handleLoginSuccess();
       navigate('/products');
+      setIsLogin(true)
     } catch (error) {
       console.error('Error logging in:', error.message);
       setErrorMessage('Error logging in: ' + error.message);
