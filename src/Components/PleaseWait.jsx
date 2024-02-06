@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Styles/PleaseWait.css'
+import '../Styles/pleaseWait.css'
 function PleaseWait() {
   return (
     <div className="please-wait">
