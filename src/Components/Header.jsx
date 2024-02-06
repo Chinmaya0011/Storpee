@@ -6,24 +6,29 @@ import { FcAbout } from "react-icons/fc";
 import { FaSitemap } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
-import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-import { IoIosCloudDone } from "react-icons/io";
-=======
+import { Link, Navigate } from 'react-router-dom';
 import { IoIosLogOut } from "react-icons/io";
 import { FaTruck } from "react-icons/fa";
->>>>>>> 7db4d3c7a1127f4af5c1a8fbf1cf8e2345d9c9f1
-
 import logo from '../images/logo.png';
+import { auth } from '../Firebase/firebase';
 
 function Header() {
   const [searchItem, setSearchItem] = useState('');
-  const { searchProducts, setSearchResults, isAuthenticated } = useContext(MyContext); // Include isAuthenticated in the destructuring
+  const { searchProducts, setSearchResults} = useContext(MyContext); // Include isAuthenticated and signout in the destructuring
 
   const handleChange = (e) => {
     setSearchItem(e.target.value);
   };
 
+    const handleSignout = async () => {
+      try {
+        await auth.signOut(); // Sign out using the auth object
+        console.log('User signed out successfully');
+        Navigate('/login')
+      } catch (error) {
+        console.error('Error signing out:', error.message);
+      }
+    };
   const handleClick = (e) => {
     e.preventDefault();
     const results = searchProducts(searchItem);
@@ -53,12 +58,10 @@ function Header() {
             <Link to="/cart" className="nav-link"><FaCartPlus /></Link>
           </li>
           <li className="nav-item">
-<<<<<<< HEAD
-            <Link to="/success" className="nav-link"><IoIosCloudDone />
-=======
-            <Link to="/success" className="nav-link"><FaTruck />
->>>>>>> 7db4d3c7a1127f4af5c1a8fbf1cf8e2345d9c9f1
-</Link>
+            <Link to="/success" className="nav-link"><FaTruck /></Link>
+          </li>
+          <li className="nav-item">
+            <Link to={'/login'} onClick={handleSignout} className="nav-link-btn"><IoIosLogOut /></Link> {/* Signout button */}
           </li>
         </ul>
       </nav>
