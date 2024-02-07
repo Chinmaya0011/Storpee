@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import '../Styles/ftpd.css';
 import PleaseWait from '../Components/PleaseWait';
 
@@ -34,11 +35,10 @@ function ForgotPassword() {
       {resetEmailSent ? (
         <div>
           <p className="forgot-reset-message">Reset email sent. Please check your email inbox.</p>
-          <p className="forgot-return-login">Return to <a href="/login" className="forgot-login-link">Login</a>.</p>
-          {/* Button back to login */}
-          <button className="forgot-back-to-login-button" onClick={() => window.location.href = '/login'}>
+       
+          <Link className="forgot-back-to-login-button" to='/login'> {/* Use 'to' instead of 'Link' */}
             Back to Login
-          </button>
+          </Link>
         </div>
       ) : (
         wait ? (
