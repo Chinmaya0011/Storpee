@@ -35,7 +35,7 @@
 }
 
 .nav-item {
-    font-size: 50px;
+    font-size: 25px;
     font-family: 'Times New Roman', Times, serif;
     display: inline;
     margin-right: 1rem;
@@ -109,7 +109,7 @@
     }
 
     .nav-item {
-        font-size: 40px;
+        font-size: 20px;
         margin-right: 40px;
     }
 .search-area{

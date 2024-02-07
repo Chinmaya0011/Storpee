@@ -31,9 +31,11 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault(); // Prevent form submission
     try {
-      const auth = getAuth();
-      await signInWithEmailAndPassword(auth, email, password);
-      handleLoginSuccess();
+     const auth=getAuth()
+     const result= await signInWithEmailAndPassword(auth, email, password);
+     localStorage.setItem("user",JSON.stringify(result))
+
+     handleLoginSuccess();
       navigate('/products');
       setIsLogin(true);
     } catch (error) {

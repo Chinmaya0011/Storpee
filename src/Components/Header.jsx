@@ -12,7 +12,9 @@ import { auth } from '../Firebase/firebase';
 
 function Header() {
   const [searchItem, setSearchItem] = useState('');
-  const { searchProducts, setSearchResults } = useContext(MyContext); // Include isAuthenticated and signout in the destructuring
+  const { searchProducts, setSearchResults } = useContext(MyContext);
+  const user = localStorage.getItem('user');
+  const admin = user ? JSON.parse(user) : null;
 
   const handleChange = (e) => {
     setSearchItem(e.target.value);
@@ -20,7 +22,7 @@ function Header() {
 
   const handleSignout = async () => {
     try {
-      await auth.signOut(); // Sign out using the auth object
+      await auth.signOut();
       console.log('User signed out successfully');
       Navigate('/login');
     } catch (error) {
@@ -45,14 +47,38 @@ function Header() {
       <nav className="nav">
         <ul className="nav-list">
           <li className="nav-item">
-            <Link to="/" className="nav-link"><FaHome /></Link>
+            <Link to="/products" className="nav-link"><FaHome /></Link>
+
           </li>
           <li className="nav-item">
-            <Link to="/cart" className="nav-link"><FaCartPlus /></Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/about" className="nav-link"><FcAbout /></Link>
-          </li>
+                <Link to="/cart" className="nav-link"><FaCartPlus /></Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/about" className="nav-link"><FcAbout /></Link>
+              </li>
+          {admin && admin.user.email === 'imchinu17@gmail.com' && (
+            <>
+              <li className="nav-item">
+                <Link to="/addproduct" className="nav-link">Add Product</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/adminDashboard" className="nav-link">Admin Dashboard</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/adminUpdateProduct" className="nav-link">Admin Update Product</Link>
+              </li>
+            </>
+          )}
+          {!admin && ( // Render these links for regular users
+            <>
+              <li className="nav-item">
+                <Link to="/cart" className="nav-link"><FaCartPlus /></Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/about" className="nav-link"><FcAbout /></Link>
+              </li>
+            </>
+          )}
           <li className="nav-item">
             <Link to={'/login'} onClick={handleSignout} className="nav-link-btn"><IoIosLogOut /></Link> {/* Signout button */}
           </li>
@@ -68,10 +94,9 @@ function Header() {
           onChange={handleChange}
         />
         <button type="submit" className="search-button">
-         <Link to={'/searchItems'}>
-         <IoIosSearch />
-         </Link>
-          
+          <Link to={'/searchItems'}>
+            <IoIosSearch />
+          </Link>
         </button>
       </form>
     </div>
